@@ -1,0 +1,21 @@
+/* Tailwind v4 base utilities */
+@import "tailwindcss";
+
+/* Projeto: tokens e utilitários do tema NeuralCineFlow */
+@import "./overrides.css";
+/* Aplica variáveis do tema NeuralCine */
+@import "./themes/neuralCine.css";
+
+/* Ajustes básicos do documento */
+:root {
+  color-scheme: dark light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* Fundo padrão baseado no tema */
+body {
+  background: var(--cine-bg);
+}

@@ -1,0 +1,30 @@
+/* NeuralCine global theme variables applied via .theme-neuralCine on <html> */
+/* Default: LIGHT variant for high legibility */
+.theme-neuralCine {
+  /* Light backgrounds and surfaces */
+  --cine-bg: #F7F7FB;           /* Paper light */
+  --cine-surface: #FFFFFF;      /* Card / panel */
+  --cine-hover: #F0EFFA;        /* Hover state */
+
+  /* Readable text on light surfaces */
+  --cine-text: #0E0B1F;         /* Deep ink */
+  --cine-text-muted: #4B4868;   /* Muted text */
+
+  /* Subtle borders aligned to light surfaces */
+  --cine-border: #E3E2F2;
+
+  /* Accents: violet + cyan */
+  --cine-primary: #7C3AED;      /* Violet */
+  --cine-secondary: #06B6D4;    /* Cyan */
+  --cine-primary-15: rgba(124, 58, 237, 0.15);
+}
+
+/* DARK variant retains NeuralCine original look */
+.dark.theme-neuralCine {
+  --cine-bg: #0E0B1F;           /* Deep space */
+  --cine-surface: #16132B;      /* Elevated panel */
+  --cine-hover: #1C1835;        /* Hover state */
+  --cine-text: #FFFFFF;         /* High contrast text */
+  --cine-text-muted: #C8C6E3;   /* Muted text */
+  --cine-border: #2A2844;       /* Border aligned to surfaces */
+}

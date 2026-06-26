@@ -1,0 +1,260 @@
+/* Global overrides to clean up theme demo artifacts and enforce header sizing */
+
+/* Remove any floating or embedded Buy Now demo links */
+.buynowlinks,
+.buy-now,
+[class*="buynow"],
+[id*="buynow"],
+a[href*="gumroad"],
+a[href*="codedthemes"],
+a[href*="datta"],
+a[href*="buy-now"],
+a[href*="buynow"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Topbar right area should not shrink; keep avatar visible */
+.topbar-right,
+.topbar-user-area {
+  min-width: 255px !important;
+  height: 70px !important;
+}
+
+/* User badge avatar sizing and truncation safety */
+.user-badge-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+/* Ensure any play overlays look consistent */
+.mini-player-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.mini-player-thumb .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
+  opacity: 0;
+  transition: opacity 120ms ease-in-out;
+}
+.mini-player-thumb:hover .overlay {
+  opacity: 1;
+}
+.mini-player-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Stronger header sizing to prevent shrink */
+.topbar-user-area {
+  flex: 0 0 255px !important;
+  min-width: 255px !important;
+}
+.topbar-user-area button,
+.topbar-user-area .user-badge-button {
+  width: 255px !important;
+}
+.user-badge-avatar {
+  flex: 0 0 40px !important;
+}
+.topbar-user-area .user-name,
+.topbar-user-area .user-label {
+  white-space: nowrap !important;
+}
+
+/* Compatibility for theme header list items */
+.pc-header .list-unstyled {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.pc-header .list-unstyled .user-avtar,
+.pc-header .list-unstyled .avtar,
+.pc-header .list-unstyled .wid-50,
+.pc-header .list-unstyled img[alt="user-image"] {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover !important;
+}
+
+/* ==========================
+   Neural Futurista Theme Base
+   ==========================
+   Define core CSS variables consumed by Tailwind utilities
+   (bg-cine, text-cine, border-cine, gradient-cine, etc.).
+   These values create a neon, futuristic atmosphere across the app.
+*/
+:root {
+  /* Core surfaces and text */
+  --cine-bg: #0B1020;             /* Deep ink */
+  --cine-surface: #141a2b;        /* Elevated surface */
+  --cine-hover: #1b2338;          /* Hover subtle */
+  --cine-text: #e6f0ff;           /* High contrast text */
+  --cine-text-muted: #a1b3c8;     /* Muted text */
+  --cine-border: #243047;         /* Subtle border */
+
+  /* Accent palette (neon cyan + violet) */
+  --cine-primary: #00eaff;        /* Neon cyan */
+  --cine-secondary: #9b5cff;      /* Electric violet */
+  --cine-primary-15: rgba(0,234,255,0.15);
+}
+
+/* Optional: dark variant mirrors base for consistent neon look */
+.dark {
+  --cine-bg: #080d19;
+  --cine-surface: #11162a;
+  --cine-hover: #18203a;
+  --cine-text: #e8f3ff;
+  --cine-text-muted: #99adc4;
+  --cine-border: #212d45;
+  --cine-primary: #00eaff;
+  --cine-secondary: #9b5cff;
+  --cine-primary-15: rgba(0,234,255,0.15);
+}
+
+/* Utility helpers for the neural aesthetic */
+.bg-ink-900 { background-color: #0B1020; }
+.bg-ink-950 { background-color: #070b16; }
+.text-ink-50 { color: #e6f0ff; }
+
+/* Subtle neon edge for cards/buttons */
+.edge-neon {
+  box-shadow:
+    0 0 0 1px rgba(0,234,255,0.12),
+    inset 0 0 20px rgba(0,234,255,0.08),
+    0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* Global gradient background layer (optional usage) */
+.neural-gradient-bg::before {
+  content: "";
+  position: fixed;
+  inset: -20% -10% -10% -20%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(60rem 60rem at 10% 20%, rgba(0,234,255,0.12), transparent 60%),
+    radial-gradient(40rem 40rem at 80% 10%, rgba(155,92,255,0.12), transparent 60%),
+    radial-gradient(50rem 50rem at 50% 90%, rgba(0,234,255,0.08), transparent 60%);
+  filter: blur(10px);
+}
+
+/* ==========================
+   Cards & Buttons (Light/Dark via CSS vars)
+   ========================== */
+.card {
+  background: var(--cine-surface);
+  border: 1px solid var(--cine-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  color: var(--cine-text);
+}
+.card-header {
+  padding: 1rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid transparent;
+}
+.card-body { padding: 1rem; }
+.card-footer { padding: 0.75rem 1rem; border-top: 1px solid transparent; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.btn:disabled { opacity: 0.6; pointer-events: none; }
+.btn-primary {
+  background: var(--cine-primary);
+  border-color: var(--cine-primary);
+  color: white;
+}
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-outline-secondary {
+  background: transparent;
+  color: var(--cine-text);
+  border-color: var(--cine-border);
+}
+.btn-outline-secondary:hover { background: var(--cine-hover); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--cine-border);
+  color: var(--cine-text);
+}
+
+/* --- Link utility for consistente hover/active behavior --- */
+.link-cine {
+  color: var(--cine-primary);
+  text-decoration: none;
+  transition: color 200ms var(--cine-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+.link-cine:hover { color: var(--cine-secondary); text-decoration: underline; }
+.link-cine.is-active { color: var(--cine-secondary); font-weight: 600; }
+
+/* --- Badge utility for themed status chips --- */
+.badge-cine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--cine-surface-90);
+  color: var(--cine-text);
+  border: 1px solid var(--cine-border);
+  font-size: 0.8125rem;
+  line-height: 1rem;
+}
+
+/* Variantes por status */
+.badge-cine--approved,
+.badge-cine--published {
+  color: #22c55e; /* green-500 */
+  border-color: rgba(34, 197, 94, 0.45);
+}
+.badge-cine--pending,
+.badge-cine--queued {
+  color: #f59e0b; /* amber-500 */
+  border-color: rgba(245, 158, 11, 0.45);
+}
+.badge-cine--rendering {
+  color: #8b5cf6; /* violet-500 */
+  border-color: rgba(139, 92, 246, 0.45);
+}
+.badge-cine--error,
+.badge-cine--failed {
+  color: #ef4444; /* red-500 */
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Estados adicionais */
+.badge-cine--draft {
+  color: #3b82f6; /* blue-500 */
+  border-color: rgba(59, 130, 246, 0.45);
+}
+.badge-cine--story,
+.badge-cine--story-generated {
+  color: #06b6d4; /* cyan-500 */
+  border-color: rgba(6, 182, 212, 0.45);
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatizador de Vídeos</title>
+    <!-- Fontes Google: Inter (global) e Poppins (títulos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      // Persistir tema (dark/class) no carregamento inicial
+      try {
+        const saved = localStorage.getItem('theme')
+        const isDark = saved ? saved === 'dark' : false // padrão: light para melhor legibilidade
+        document.documentElement.classList.toggle('dark', isDark)
+        // Ativa o tema NeuralCine desde o first paint
+        document.documentElement.classList.add('theme-neuralCine')
+      } catch (e) {}
+    </script>
+    <!-- Google Identity Services client -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
